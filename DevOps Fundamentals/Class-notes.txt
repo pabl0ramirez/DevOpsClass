@@ -1,0 +1,186 @@
+
+@@@@@@@@@
+Day-1 :::
+@@@@@@@@@
+
+
+Intro SDLC -- Software Development Lifecycle!!!!
+
+Developers, DevOps Engi.
+
+Requirement Analysis!
+Design
+Develop the code
+Test
+Deploy the code 
+Maintain...
+
+Waterfall Model!!!
+
+Agile Methodology
+
+Iteration1 sign-up
+	Requirement Analysis!
+	Deesign
+	Devlop the code
+	Test
+	Deploy the code 
+	Maintain...
+
+Iteration2
+	Requirement Analysis!
+	Design
+	Develop the code
+	Test
+	Deploy the code 
+	Maintain...
+
+Real Time Business Requirement!!!
+
+Application -->
+	
+	Monolith Application
+
+
+DevOps!!! - Software Development Strategy!!!
+
+Telecom service provider1			--> wants to introduce a new offer --> 
+Telecom service provider2
+
+
+amazon.com ::
+
+sign-up								function / service -- make some changes and ready to deploy to prod
+sign-in 
+search for products
+add to cart 
+place the order
+make payment
+confirm order
+track
+	
+	Monolith based Application
+				(vs)
+	Microservice based Applications   === No Downtime is needed 
+
+Banking Application!!!
+
+deployment Window ::: 4Hr.
+
+
+Devops Strategy!
+
+SDLC Process 
+
+DevOps Strategy:: is all about People/Process/Tools  
+
+DevOps Team :::
+
+			Infra-Structure Team(operations)   -- create 100 test servers. 
+			Development Team				Java Appln. - code - build the code - create artifacts(binaries)*.war
+			Testing Team
+			Release Management Team
+			Production Support Team
+			Monitoring Team			
+			Security Team 
+			
+Waterfall Model / Agile :::
+
+Environments::::
+
+
+Non-Prod Environments							Prod Environment
+
+DEV Environment	 pgm1.war						PROD Environment (LIVE - Environment)
+
+Test Environments
+	- QA	
+	- UAT
+	- Pre-Prod / Staging
+
+Deployment --> Consider source and Target environment 
+
+Deployment workflow ::
+
+DEV --> QA --> UAT --> Pre-Prod/Staging   -----> PROD 
+
+Developer -- 
+
+
+
+
+DevOps Stages!!!!
+
+
+Continuous Development			DEV Team 
+Continuous Integration		
+
+Continuous Delivery
+
+Continuous Deployment
+
+Developer1 --- Service1 -- Java Web Application, perform Unit Testing 
+Interate the code to Higher environment (QA) --> (UAT) --> Pre-Prod/Staging
+
+Developer2 --- Service2 -- Java Web Application, perform Unit Testing
+Interate the code to Higher environment (QA) --> (UAT) --> Pre-Prod/Staging
+
+DevOps Tools like Jenkins 
+
+1000 Microservices 
+
+
+Developer1   -- Sign-in(Module/service) -- Java - src code -- build -- created artifacts(binaries)0/1 *.war / *.jar
+				do the unit testing  		pgm1.java			pgm1.war
+				Pushed to QA Environment for further testing
+				
+Developer2   -- Sign-up(Module/service) -- Java - src code -- build -- created artifacts(binaries)0/1 *.war / *.jar
+				do the unit testing  		pgm1.java			pgm1.war
+				Pushed to QA Environment for further testing
+
+
+
+Continuous Delivery / Deployment ???
+
+
+
+Production Release Process !!!
+
+	Continuous Delivery Strategy		---> It requires Manual Approval to deploy to PROD 
+			(or)
+	Continuous Deployment Strategy		---> It is automatically deployed PROD
+
+DEV(src_code --> build(Compile) --> created artifacts(binaries)*.war) --> QA --> UAT --> Pre-Prod/Staging   -----> PROD 
+
+DevSecOps**
+
+Change Request :: 
+
+All your Banking sectors  		---> Continuous Delivery
+
+Facbook/netflix/google/amazon 	---> Continuous Deployment
+
+**************************************
+
+Multi-user environment 
+
+	Developer1		-	payment_verification_module.java - func-1 - SRC Repo - Branch - build, create artifacts pushed to QA
+	Developer2 		- 	payment_verification_module.java - func-2 - SRC Repo - Branch - build, create artifacts pushed to QA
+
+Continuous Integration :::
+
+
+
+
+Trained DevOps Resource - DevOps Engi. 
+
+15+ 
+
+Creating Automated scripts !!!! 
+
+	- shell script
+	- groovy script
+	- yaml script
+	- python script 
+	
+Automate ==	CI / C-Delivery & C/Deployment
