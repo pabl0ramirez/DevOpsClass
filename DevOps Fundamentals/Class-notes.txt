@@ -184,3 +184,124 @@ Creating Automated scripts !!!!
 	- python script 
 	
 Automate ==	CI / C-Delivery & C/Deployment
+
+
+
+
+@@@@@@@@@
+Day-2 :::
+@@@@@@@@@
+
+
+DevOps Skills ::
+
+Tool :::
+
+Uses Case!!
+
+	-	Create a Web Application!
+
+Design Documents!!
+
+Development Phase :::
+
+DevOps Workflow:
+
+	DEV Environment:
+	
+		Developers will do the code development - Java program -- *.jsp 
+		They use Eclipe Based IDE - Visual Studio Code, Eclipse
+
+		Build - Compile the src Code
+
+		Create Artifacts ( Binaries) *.war 
+
+	Deploy to Test Environments (QA)
+
+	Deploy to Test Environments (UAT)
+
+	Deploy to Test Environments (PROD)
+	
+	Monitor the Appln running Prod.
+
+
+What is Your Role???
+
+DevOps Implementation!!!
+
+Complete CI CD Pipeline -- which can automate these actions
+
+SCM Tool -- Version Control System 
+SCM Tool - Version Control System : Used by Developer 
+
+	Save the source Code
+	Track the changes 
+	Version Control the Source Code 
+
+Build Tools : MAVEN,ANT,GRADLE -- Compile and Create Artifacts
+
+Deployment - is the process of copying/promoting the artifacts from one environment to another environment.
+		Eg.: Ansible 
+
+Monitor Prod Applications / Infra :
+	Using Monitoring tools like Prometheus/Grafana/Nagios
+
+DevOps Tools ::
+	Open Source Tools 
+
+Cloud Environment 
+ AWS , AZURE , GCP -->
+Managed Services 
+
+
+What the Role of DevOps Engineer here? ??
+
+Create Automation SCripts to perform these end-to-end CI/CD process.
+
+
+Jenkins -- Build Orchestration Tool 
+
+
+Pick-up the src code from SCM 
+
+Perform Build
+
+Create Artifacts 
+
+Perform Automated Testing
+
+Deploy 
+
+Notified to the users
+
+DEV(src_code --> build(Compile) --> created artifacts(binaries)*.war) --> QA --> UAT --> Pre-Prod/Staging   -----> PROD 
+
+
+Testing Team in QA Envi. will do the testing 
+		selenium
+		
+		Test Data,
+		Test Envi,
+		Test Cases
+		Test Scenarios...
+		
+		Manually / Automatically
+
+DevOps 
+
+Integrate test automation in CI/CD pipeline 
+
+
+
+Bugs/Errors 
+
+
+GIT ===>
+
+Github ---> Used to manage the src and document in the form or repositories.
+
+
+
+
+
+
