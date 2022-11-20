@@ -301,7 +301,66 @@ GIT ===>
 Github ---> Used to manage the src and document in the form or repositories.
 
 
+@@@@@@@@@
+DAY-3
+@@@@@@@@@
 
+
+Web Development --> Project.
+
+E-Commerce Portal!!! Web Site..
+
+	Dev.Environment === for code and development
+	
+	Test.Environment === for Testing the Applications
+		
+	PROD.Environment === Deployed 
+	Hosted Servers
+	Application Servers 
+
+	
+Infrastructure ===> 
+
+	On-Premises Environment 
+	
+	Cloud Platforms 
+	
+	
+
+
+
+Microservices!!!!
+
+	DevOps CI/CD Pipeline, I need to test 1000 microservices
+	
+		1000 servers to test all these 1000 microservices ?
+	
+		Server Provisioning Tool to automatically create the 1000 servers										Terraform
+		
+		Configuration Management Tool to automatically configure the required tools in all these servers.		Ansible
+		jdk1.8, 
+	
+		Destroy all the 1000 servers once testing is completed!													Terraform
+		
+	IAC	
+
+*************************************
+
+Labs :::
+
+	Edureka Lab -- dedicated cloud platform for labs
+	AWS Cloud Platforms :::
+
+Task for Today:
+
+	-	Create AWS Free Tier Account
+	-	Create EC2 - AmazonLinux Instances
+
+Next Session:
+	-	Install SSH-Client.
+			mobaxterm			*.pem
+			putty				*.ppk
+	-	Connect to Ec2 Instances!
 
 
 
