@@ -364,3 +364,143 @@ Next Session:
 
 
 
+
+@@@@@@@@@
+DAY-4 :
+@@@@@@@@
+
+Next Session:
+	-	Install SSH-Client.
+			mobaxterm			*.pem							Windows --> mobaxterm or putty
+			putty				*.ppk							Mac		--> putty 
+	-	Connect to Ec2 Instances!
+	-	AWS Linux Instances -- All the basic Linux commands.
+
+
+Why we need AWS Instances!!!!
+
+Cloud --- Need some infra for our appln.
+
+Create Virtual Machines! (EC2 Instances)
+		Linux 
+		Mac 
+		Windows
+		
+
+DevOps Tools :::
+	Jenkins,Ansible,Docker,Kubernetes...
+
+
+	-	Stop / Terminate 
+	-	Start 
+
+
+	-	How to connect to EC2 Amazon Linux Instances  default user is (ec2-user) 
+			-	EC2 Instance connect through Browser
+				-	Select the instance
+				-	Click on Connect button
+			-	SSH-Client
+				-	Mobaxterm
+					Install MobaXterm
+				-   Putty
+			-	Command Prompt / Terminal
+			
+		Connected to Linux Machine!
+		
+			How to Work on Linux !!!
+			
+Linux 
+
+		What is OS ?
+		Which OS ?
+		
+		Login to ur Machine 
+			Create Users
+			Create User Groups / Access level
+		
+		Install some tools or software
+		
+		Work on some File Systems
+			Create / update / delete any files.
+		
+		Storage 
+		
+		Secure the files 
+		
+		Share the files to remote servers
+		Connect to my remote servers 
+			How securely you can connect ?
+			What are the security feature you need ??
+				Password based auth 
+				Passwordless auth
+				Key based auth 
+		
+		Scripts 
+			shell Scripts 
+		
+		
+		
+DevOps 
+
+CI/CD Pipeline 		
+		
+		
+	Dev.Environment === for code and development  (server Linux)  --> jdk1.8 --> python *.java
+	
+	Test.Environment === for Testing the Applications	(Test Server Linux) 
+		
+	PROD.Environment === Deployed 
+	Hosted Servers
+	Application Servers 
+			
+	
+	The Linux Commands are dependents upon the Linux Distributions!!!
+
+
+
+Linux Commands::
+
+
+		clear -- clear the scr
+		Package Managers		- are used to install and manage(update/remove) the packages 
+			yum 		- centos/redhat/amazon linux
+			apt-get		- Debian / Ubuntu
+			rpm		
+		All the Package Managers shd be executed as root user in Linux.
+		
+		sudo yum update -y
+		sudo -i
+		echo "Hello"
+		touch file1.txt
+		cat file1.txt 
+		
+
+    1  yum update -y
+    2  clear
+    3  echo "HEllo Everyone"
+    4  touch file1.txt
+    5  ls
+    6  pwd
+    7  cat file1.txt 
+    8  echo "Hello Everyone" >> file2.txt
+    9  ls
+   10  cat file2.txt 
+   11* 
+   12  cat file2.txt 
+   13  echo "New Record" > file2.txt
+   14  cat file2.txt 
+   15  history
+   
+   
+		cat file2.txt			==	 print the file contents in read-only mode.
+		
+		vi file2.txt			==	 open the file in edit mode. 
+			Press 'i' to insert new records in the file 
+			esc :wq 			==> save and quit the file
+			esc :q!				==> exit from the file without save.
+
+
+Shell Scripts!!!!
+yaml scripts
+			Managed Services --> AWS , Azure!
+Use Visual Studio Code - IDE 
