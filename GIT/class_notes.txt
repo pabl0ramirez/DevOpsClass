@@ -1,0 +1,516 @@
+GITHUB :::
+
+SCM using GIT
+
+@@@@@@@
+DAY-1
+@@@@@@@
+
+DevOps Workflow ::: CD, CI, CD , CD , CT, CM 
+
+Java Developer!
+
+Java Web Appln.
+
+IDE - Eclipse based IDE, 
+
+GIT Repository!
+
+File System.
+
+*.java
+*.jsp
+
+hello-world.java -- testing -- v1.0
+
+hello-world.java -- testing -- v1.1
+
+hello-world.java -- testing -- v1.2
+
+hello-world.java -- testing -- v1.3
+
+hello-world.java -- testing -- v1.4
+
+GIT - 
+
+Version Control the src
+Track the changes!
+
+
+Scripts :
+
+ yaml
+ py
+ groovy
+ 
+version controlled.
+
+code 
+
+
+AS a CODE.
+
+gitOps
+
+DEV Perspectives:	
+	Create some version controlled files(src, other components)
+
+DevOps Perspectives:
+	Installation, Config, Management of GIT Repositories
+	Create some version controlled files(scripts, and other components)
+	Upgrade, Migration, backup and recovery
+	
+Jenkins scripts! templates 
+
+Repository  <==> Folder
+
+
+
+VCL
+
+CVL
+
+DVC
+
+
+GIT ===>> Remote Repo.
+
+
+Local Repo ===> Remote Repo(GITHUB, Azure Repo, GITLAB)
+
+
+
+
+Project :::
+
+	file1.jsp
+	
+DEV Team,
+
+Developer 1 --- assigned with a task1
+
+		file1.jsp
+	
+
+Developer 2 --- assigned with a task2 
+
+		file1.jsp
+
+Branch.
+feature1 --> file1.jsp
+feature2 --> file1.jsp
+
+
+GIT :
+
+Github 
+
+
+GIT Workflow
+
+
+git:
+
+git clone
+
+git pull		---> update the working dir & local repo.
+		fetch & Merge
+
+git fetch		---> update the local repo.
+		git merge
+		git checkout
+
+	To handle the incremental changes from remote repo.
+
+git add 		---> working dir to staging Area
+
+git commit		---> from staging area to local repo.
+
+git push		---> push the changes from local repo to remote repo.
+
+
+
+
+***********************************
+
+Windows :
+
+D:
+
+create folder 
+
+git init 
+
+git config 
+
+  501  cd c:
+  502  mkdir scmdec03
+  503  cd scmdec03/
+  504  pwd
+  505  mkdir repo1
+  506  cd repo1/
+  507  clear
+  508  ls
+  509  ls
+  510  ls -a
+  511  git init
+  512  ls -a
+  513  ls
+  514  clear
+  515  ls
+  516  ls -a
+  517  cd .git/
+  518  ls
+  519  ll
+  520  clear
+  521  ls
+  522  cd ..
+  523  cd ..
+  524  mkdir repo2
+  525  cd repo2
+  526  ls
+  527  ls -a
+  528  clear
+  529  git init
+  530  ls -a
+  531  cd .git/
+  532  ls
+  533  cd ..
+  534  ls
+  535  clear
+  536  git status
+  537  echo "rec1" >> file1.txt
+  538  ls
+  539  git status
+  540  git add file1.txt
+  541  git status
+  542  git commit -m "commit msg1"
+  543  git status
+  544  git log
+  545  history
+
+
+@@@@@@@@
+DAY-2
+@@@@@@@@
+
+GIT --- Distributed VCS!
+
+
+				Remote GIT Repository	(git config)  --> GitHUB, GITLA, AZURE REPO, BIT BUCKET
+	
+	
+
+Local GIT Repositories 
+git config 
+
+100 Developers!!!!!
+
+GIT Admin!
+
+Auth
+
+Authen
+
+
+Summary::
+	
+	Local GIT Installation:
+		Windows
+			GIT GUI
+			GIT BASH
+
+
+
+mkdir folder
+
+cd d: 
+
+
+GIT Ignore!!!!!
+
+				Java Project 
+				Appln-folder
+					s1.java
+					a1.jsp						3 tier archi. frontend, appln, backend (dbase)
+					s1.class
+					readme.md
+					proj-design.doc
+					secrets
+					password
+					tokens
+					
+					
+		Git Ignore!!!
+		
+		vi .gitignore
+		
+		*.class 
+		*.doc
+		readme.md
+		secrets
+		password
+		tokens	
+		
+		git push  all the secrets / password are exposed to remote repo 
+		
+		
+		git revert :::
+		
+		<commit_ID> CM1 --> HEAD
+		CM3
+		CM2
+		CM1 
+		
+		
+		git reset 
+		
+		
+		*.war --- v1.0
+		*.war --- v1.0 , v1.1, v1.3, v1.1
+		
+		git revert v1.1
+		
+		new commit point!!
+		
+		git revert --abort 
+		
+		(vs)
+		
+		git reset!!!
+		
+			--soft
+			--mixed
+			--hard
+		
+		WD, S-A, L-R
+			
+		
+		
+		
+		Integrity!
+			
+		git ls-files === is used to list all the tracked files 
+					
+		ls === 
+		
+		git diff cm1 cm2
+
+  501  cd d:
+  502  cd scmdec03/
+  503  clear
+  504  ls
+  505  clear
+  506  mkdir testrepo1
+  507  cd testrepo1/
+  508  git init
+  509  ls
+  510  echo "rec1" >> file1.txt
+  511  git status
+  512  git add .
+  513  git status
+  514  git commit -m "CM1"
+  515  ls
+  516  git status
+  517  git log
+  518  echo "rec1" >> file2.txt
+  519  git status
+  520  git add .
+  521  git commit -m "CM2"
+  522  git log
+  523  ls
+  524  cat file1.txt
+  525  echo "rec2" >> file1.txt
+  526  cat file1.txt
+  527  git status
+  528  git add .
+  529  git commit -m "CM3"
+  530  git log
+  531  clear
+  532  git log
+  533  git log --oneline
+  534  git log -2
+  535  git log --oneline -2
+  536  git log --stat
+  537  git status
+  538  echo "rec1" >> file3.txt
+  539  git status
+  540  git add .
+  541  git commit -m "CM4"
+  542  git log
+  543  cat file1.txt
+  544  git status
+  545  git log --oneline
+  546  git status
+  547  git log --stat
+  548  git status
+  549  git diff HEAD
+  550  clear
+  551  ls
+  552  cat file1.txt
+  553  echo "rec3" >> file1.txt
+  554  git diff
+  555  cclear
+  556  clear
+  557  ls
+  558  cat file1.txt
+  559  git status
+  560  git diff
+  561  git add .
+  562  git diff
+  563  git diff --staged
+  564  git log
+  565  git log --stat
+  566  git diff --staged
+  567  git diff --name-only --staged
+  568  git commit -m "CM5"
+  569  git status
+  570  git diff HEAD
+  571  clear
+  572  git status
+  573  ls
+  574  echo "rec1" >> file4.txt
+  575  ls
+  576  git status
+  577  git add .
+  578  git status
+  579  git rm --cached file4.txt
+  580  ls
+  581  git status
+  582  git add .
+  583  git status
+  584  git rm -f file4.txt
+  585  ls
+  586  git status
+  587  clear
+  588  cd ..
+  589  mkdir testrepo2
+  590  cd testrepo2
+  591  ls
+  592  git init
+  593  ls
+  594  ls -a
+  595  vi .gitignore
+  596  ls
+  597  ls -a
+  598  git status
+  599  git add .
+  600  git commit "Initial commit"
+  601  git commit -m "Initial commit"
+  602  git status
+  603  ls -a
+  604  clear
+  605  cat .gitignore
+  606  echo "rec1" >> file1.txt
+  607  git status
+  608  echo "rec1" >> s1.doc
+  609  git status
+  610  echo "rec1" >> file2.txt
+  611  git status
+  612  ls
+  613  git add .
+  614  git commit -m "CM1"
+  615  ls
+  616  clear
+  617  git status
+  618  git log
+  619  git log --stat
+  620  echo "rec1" >> file2.txt
+  621  git add .
+  622  git status
+  623  cat file2.txt
+  624  git commit -m "CM2"
+  625  ls
+  626  git status
+  627  cat file2.txt
+  628  git log
+  629  git log --oneline
+  630  git revert aa2286a
+  631  git revert --abort
+  632  clear
+  633  ls
+  634  git status
+  635  echo "rec1" >> file3.txt
+  636  git add .
+  637  git status
+  638  git commit -m "CM3"
+  639  git status
+  640  git log --oneline
+  641  git log --stat
+  642  git log --oneline
+  643  git revert 92212c2
+  644  git status
+  645  git log
+  646  git log --oneline
+  647  ls
+  648  git ls-files
+  649  clear
+  650  git status
+  651  git log --oneline
+  652  git log
+  653  git log --oneline
+  654  ls
+  655  git status
+  656  cd ..
+  657  mkdir testrepo3
+  658  cd testrepo3/
+  659  ls
+  660  git init
+  661  echo "rec1" >> file1.txt
+  662  git add .
+  663  git commit -m "CM1"
+  664  echo "rec1" >> file2.txt
+  665  git add .
+  666  git commit -m "CM2"
+  667  echo "rec1" >> file3.txt
+  668  git add .
+  669  git commit -m "CM3"
+  670  git log --oneline
+  671  echo "rec1" >> file4.txt
+  672  git add .
+  673  git commit -m "CM4"
+  674  git log --oneline
+  675  clear
+  676  git log --oneline
+  677  git status
+  678  ls
+  679  git ls-files
+  680  git reset --soft 0b35668
+  681  git status
+  682  git log --oneline
+  683  ls
+  684  git ls-files
+  685  git status
+  686  git commit -m "CM4-1"
+  687  git log --oneline
+  688  clear
+  689  git log --oneline
+  690  git status
+  691  git ls-files
+  692  git reset --mixed 0b35668
+  693  git status
+  694  ls
+  695  git ls-files
+  696  git status
+  697  git add .
+  698  git commit -m "CM4-2"
+  699  git status
+  700  git ls-files
+  701  clear
+  702  ls
+  703  git log --oneline
+  704  git ls-files
+  705  git reset --hard 0b35668
+  706  git log --oneline
+  707  ls
+  708  git ls-files
+  709  git log --oneline
+  710  ls
+  711  git log
+  712  git reflog
+  713  git revert 0c67c38
+  714  git revert f36977e
+  715  git reset --soft f36977e
+  716  git log --oneline
+  717  clear
+  718  history
