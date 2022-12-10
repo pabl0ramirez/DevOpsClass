@@ -1,0 +1,216 @@
+@@@@@@@@@@@@@
+@  DAY-3 --> 10th Dec. 22
+@@@@@@@@@@@@@
+
+Batch : Dec03	SCM - GIT
+
+GIT Branch!!!
+GIT Branching strategies!!!
+
+
+Git Repo :::
+
+git init 
+	
+master branch
+
+SCM -- used to version control and track the file changes 
+
+Local Repo ::											===> 	Remote Repo: 
+
+	master 				====> as PROD Copy.
+		file1.txt
+	
+	
+		feature-branch1
+			
+		
+	branches :
+	
+	Developer1 -
+		file1.txt 
+		
+	Developer2 -
+		file1.txt 
+
+
+
+Scenario :::
+
+	master Branch (Prod)
+	
+		Release-Branch
+		
+			Integration-Branch									Pull Request!!!! (GitHub)
+			
+				Dev-Branch	(Team1)	
+					feature1-branch 
+					feature2-branch 
+					feature3-branch 
+
+				Dev-Branch	(Team2)	
+					feature1-branch 
+					feature2-branch 
+					feature3-branch 
+
+Detailed Review!
+
+	master Branch (Prod)
+	
+		Release-Branch 
+
+				Dev-Branch	(Team2)	
+					feature1-branch 
+					feature2-branch 		
+					feature3-branch 
+
+
+jdk1.7			the release / version / tag 
+jdk1.8
+
+
+Environments!!!
+
+	DEV 
+	
+		Team1:													Java Appln.
+			Create Source Code  --> developer1 	Dev-system	
+			Create Source Code  --> developer2 	Dev-system
+			Create Source Code  --> developer3 	Dev-system
+			Create Source Code  --> developer4 	Dev-system
+			
+		Team2:													Python Appln.
+			Create Source Code  --> developer1 	Dev-system
+			Create Source Code  --> developer2 	Dev-system
+			Create Source Code  --> developer3 	Dev-system		NodeJs
+			Create Source Code  --> developer4 	Dev-system		NodeJs
+
+	Jenkins Master :				Load Balancing
+			
+			Build(compile the src)					build server1  --->  java
+			Build(compile the src)					build server2
+			Build(compile the src)					build server3
+			Build(compile the src)					build server4	python 
+			Build(compile the src)					build server5	nodejs
+			
+			Create Artifacts
+	
+		QA	Load Balancing
+			Deploy Artifacts
+			
+		UAT Load Balancing
+			Deploy Artifacts
+
+		PROD  Load Balancing
+			Deploy Artifacts
+
+
+
+
+
+Application :::
+
+			Muliple 
+			
+			master 
+			
+			microservices1,2,3,4
+
+
+Application:
+
+Repo1
+	master
+	
+Mircorservice1 :
+
+Repo1
+	master 
+
+Mircorservice2 :
+
+Repo2
+	master 
+
+
+
+Demo:
+
+	git checkout -b <new_branch_name>
+	git branch <new_branch_name>
+	git switch -c <new_branch_name>
+
+
+	git branch -d feature3
+	git branch -D feature3		- Force delete
+
+master :
+
+	feature1 
+		echo "adf" > t1.txt 
+
+
+
+
+vi file1.txt
+
+press i    	===> to insert the records
+esc :wq		===> to save and quit the file
+esc :q!		===> to exit without saving the file 
+
+
+
+
+	master Branch (Prod)
+	
+		DEV-Branch
+			feature1-branch 			=== > changes are completed & merge to master 
+			feature2-branch 		
+			feature3-branch				=== > Changes are ready to be merged to master  
+
+
+
+
+While creating a new branch, plz ensure the current branch name and git status.
+
+Merge! 
+
+git merge - is use to merge the branches 
+
+always execute the merge cmd from the target brch
+
+
+DevOps Engg.
+
+	1. 	Create Appln. src repo for any appln to onboard to devops 
+	2.	Create src repo for DevOps Automation!
+			Create the scripts using VS Code & integrate the code with GIT repo.
+			
+Master in GIT .
+
+	Github is jus a remote repo.
+	azure repo
+	aws repo
+	gitlab
+
+
+
+	master Branch (Prod)
+
+			feature1-branch 			=== > changes are completed & merge to master 
+			cm1
+			cm2
+			cm3
+			cm4
+			cm5
+			cm6
+			
+			feature2-branch 		
+			feature3-branch				=== > Changes are ready to be merged to master 
+			cm1
+			cm2
+			
+			temp-branch 
+			git merge feature3 
+			
+			
