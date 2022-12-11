@@ -1,0 +1,139 @@
+		
+@@@@@@@
+Day-4
+@@@@@@@
+
+Git Branches!!!!
+
+	master 
+		feature1
+		feature2
+		feature3
+
+	rebase					local repo. 
+	
+	pull 					remote repo.
+	
+	
+	master 
+			cm1,cm2,cm3
+
+		feature1		==> git log --oneline 
+			cm1,cm2,cm3,cf11				==> git log --oneline 
+
+		git switch master
+		git merge feature1
+			cm1,cm2,cm3,cf11
+			
+		feature2		==> git log --oneline 
+			cm1,cm2,cm3,cf21,cf22			==> git log --oneline 
+			
+		git switch master
+		git merge feature2 
+			cm1,cm2,cm3,cf21,cf22			==> git log --oneline
+			
+		
+		
+		cm1,cm2,cm3,cf21,cf22,cf11			===> 
+		
+		cm1,cm2,cm3,cf11,cf21,cf22   --- invalid
+		
+		rebase :::
+		
+		
+	master 
+			cm1,cm2,cm3		
+		
+		git switch -c feature3 
+			cm1,cm2,cm3
+			
+		rebase 
+			cm1,cm2,cm3,cf21,cf22,cf31
+			
+	
+	Rebase
+	
+	Squash
+	
+	git merge 
+	
+	fast-fwd merge
+	
+	
+	Squash :::
+	
+		
+Scenario :::
+
+	master Branch (Prod) v1.1 v1.2 v1.5
+	
+		Release-Branch
+		
+			Integration-Branch									Pull Request!!!! (GitHub)
+			
+				Dev-Branch1	(Team1)		- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+					feature1-branch 	- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9 - final_commit_from_feature1
+					feature2-branch 
+					feature3-branch 
+
+				Dev-Branch2	(Team2)	
+					feature1-branch 
+					feature2-branch 
+					feature3-branch 			
+
+
+	master-branch -- cm1,cm2,cm3,cmf4,cmf4,cmf5,cmf6,cmf7,cmf8,cmf9  -- Shd always clean / free from unnecessary commits.
+
+		Rel-Branch -- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+				
+			Int-branch -- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+			
+				dev -- cm1,cm2,cm3,cmf4,cmf4,cmf5,cmf6,cmf7,cmf8,cmf9
+				
+				git merge feature1
+	
+	Squash ---> combine the multiple commits into one single commit 
+	
+		- before merge		::: (while working in the current branch)
+			git rebase -i HEAD~5
+		
+		- while merging
+		
+	
+			
+	feature3 -		cm1,2,3,4,5,6,7,8,9
+	
+	git cherry-pick <commit-id>
+	
+Dev - phase 
+Continuous Development 			---> IDE - Visual Studio Code 
+Repo. Management
+
+	stash :::
+	
+	master
+		dev
+			f1				-- developer1 --- working f1 -- created some files, staged the files, s1.txt s2.txt 
+			
+			hotfix-branch 	-- developer1 
+			
+			f2
+			f3 
+	
+	git status 
+	
+	Change request Number :: 
+	
+	
+	commit --amend
+	
+	CR --> 5 files 
+	
+	4 files 
+	
+Next :
+	
+	Remote!!!!
+	
+	github!!!!
+	
