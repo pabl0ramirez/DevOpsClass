@@ -1,0 +1,977 @@
+GITHUB :::
+
+SCM using GIT
+
+@@@@@@@
+DAY-1
+@@@@@@@
+
+DevOps Workflow ::: CD, CI, CD , CD , CT, CM 
+
+Java Developer!
+
+Java Web Appln.
+
+IDE - Eclipse based IDE, 
+
+GIT Repository!
+
+File System.
+
+*.java
+*.jsp
+
+hello-world.java -- testing -- v1.0
+
+hello-world.java -- testing -- v1.1
+
+hello-world.java -- testing -- v1.2
+
+hello-world.java -- testing -- v1.3
+
+hello-world.java -- testing -- v1.4
+
+GIT - 
+
+Version Control the src
+Track the changes!
+
+
+Scripts :
+
+ yaml
+ py
+ groovy
+ 
+version controlled.
+
+code 
+
+
+AS a CODE.
+
+gitOps
+
+DEV Perspectives:	
+	Create some version controlled files(src, other components)
+
+DevOps Perspectives:
+	Installation, Config, Management of GIT Repositories
+	Create some version controlled files(scripts, and other components)
+	Upgrade, Migration, backup and recovery
+	
+Jenkins scripts! templates 
+
+Repository  <==> Folder
+
+
+
+VCL
+
+CVL
+
+DVC
+
+
+GIT ===>> Remote Repo.
+
+
+Local Repo ===> Remote Repo(GITHUB, Azure Repo, GITLAB)
+
+
+
+
+Project :::
+
+	file1.jsp
+	
+DEV Team,
+
+Developer 1 --- assigned with a task1
+
+		file1.jsp
+	
+
+Developer 2 --- assigned with a task2 
+
+		file1.jsp
+
+Branch.
+feature1 --> file1.jsp
+feature2 --> file1.jsp
+
+
+GIT :
+
+Github 
+
+
+GIT Workflow
+
+
+git:
+
+git clone
+
+git pull		---> update the working dir & local repo.
+		fetch & Merge
+
+git fetch		---> update the local repo.
+		git merge
+		git checkout
+
+	To handle the incremental changes from remote repo.
+
+git add 		---> working dir to staging Area
+
+git commit		---> from staging area to local repo.
+
+git push		---> push the changes from local repo to remote repo.
+
+
+
+
+***********************************
+
+Windows :
+
+D:
+
+create folder 
+
+git init 
+
+git config 
+
+  501  cd c:
+  502  mkdir scmdec03
+  503  cd scmdec03/
+  504  pwd
+  505  mkdir repo1
+  506  cd repo1/
+  507  clear
+  508  ls
+  509  ls
+  510  ls -a
+  511  git init
+  512  ls -a
+  513  ls
+  514  clear
+  515  ls
+  516  ls -a
+  517  cd .git/
+  518  ls
+  519  ll
+  520  clear
+  521  ls
+  522  cd ..
+  523  cd ..
+  524  mkdir repo2
+  525  cd repo2
+  526  ls
+  527  ls -a
+  528  clear
+  529  git init
+  530  ls -a
+  531  cd .git/
+  532  ls
+  533  cd ..
+  534  ls
+  535  clear
+  536  git status
+  537  echo "rec1" >> file1.txt
+  538  ls
+  539  git status
+  540  git add file1.txt
+  541  git status
+  542  git commit -m "commit msg1"
+  543  git status
+  544  git log
+  545  history
+
+
+@@@@@@@@
+DAY-2
+@@@@@@@@
+
+GIT --- Distributed VCS!
+
+
+				Remote GIT Repository	(git config)  --> GitHUB, GITLA, AZURE REPO, BIT BUCKET
+	
+	
+
+Local GIT Repositories 
+git config 
+
+100 Developers!!!!!
+
+GIT Admin!
+
+Auth
+
+Authen
+
+
+Summary::
+	
+	Local GIT Installation:
+		Windows
+			GIT GUI
+			GIT BASH
+
+
+
+mkdir folder
+
+cd d: 
+
+
+GIT Ignore!!!!!
+
+				Java Project 
+				Appln-folder
+					s1.java
+					a1.jsp						3 tier archi. frontend, appln, backend (dbase)
+					s1.class
+					readme.md
+					proj-design.doc
+					secrets
+					password
+					tokens
+					
+					
+		Git Ignore!!!
+		
+		vi .gitignore
+		
+		*.class 
+		*.doc
+		readme.md
+		secrets
+		password
+		tokens	
+		
+		git push  all the secrets / password are exposed to remote repo 
+		
+		
+		git revert :::
+		
+		<commit_ID> CM1 --> HEAD
+		CM3
+		CM2
+		CM1 
+		
+		
+		git reset 
+		
+		
+		*.war --- v1.0
+		*.war --- v1.0 , v1.1, v1.3, v1.1
+		
+		git revert v1.1
+		
+		new commit point!!
+		
+		git revert --abort 
+		
+		(vs)
+		
+		git reset!!!
+		
+			--soft
+			--mixed
+			--hard
+		
+		WD, S-A, L-R
+			
+		
+		
+		
+		Integrity!
+			
+		git ls-files === is used to list all the tracked files 
+					
+		ls === 
+		
+		git diff cm1 cm2
+
+  501  cd d:
+  502  cd scmdec03/
+  503  clear
+  504  ls
+  505  clear
+  506  mkdir testrepo1
+  507  cd testrepo1/
+  508  git init
+  509  ls
+  510  echo "rec1" >> file1.txt
+  511  git status
+  512  git add .
+  513  git status
+  514  git commit -m "CM1"
+  515  ls
+  516  git status
+  517  git log
+  518  echo "rec1" >> file2.txt
+  519  git status
+  520  git add .
+  521  git commit -m "CM2"
+  522  git log
+  523  ls
+  524  cat file1.txt
+  525  echo "rec2" >> file1.txt
+  526  cat file1.txt
+  527  git status
+  528  git add .
+  529  git commit -m "CM3"
+  530  git log
+  531  clear
+  532  git log
+  533  git log --oneline
+  534  git log -2
+  535  git log --oneline -2
+  536  git log --stat
+  537  git status
+  538  echo "rec1" >> file3.txt
+  539  git status
+  540  git add .
+  541  git commit -m "CM4"
+  542  git log
+  543  cat file1.txt
+  544  git status
+  545  git log --oneline
+  546  git status
+  547  git log --stat
+  548  git status
+  549  git diff HEAD
+  550  clear
+  551  ls
+  552  cat file1.txt
+  553  echo "rec3" >> file1.txt
+  554  git diff
+  555  cclear
+  556  clear
+  557  ls
+  558  cat file1.txt
+  559  git status
+  560  git diff
+  561  git add .
+  562  git diff
+  563  git diff --staged
+  564  git log
+  565  git log --stat
+  566  git diff --staged
+  567  git diff --name-only --staged
+  568  git commit -m "CM5"
+  569  git status
+  570  git diff HEAD
+  571  clear
+  572  git status
+  573  ls
+  574  echo "rec1" >> file4.txt
+  575  ls
+  576  git status
+  577  git add .
+  578  git status
+  579  git rm --cached file4.txt
+  580  ls
+  581  git status
+  582  git add .
+  583  git status
+  584  git rm -f file4.txt
+  585  ls
+  586  git status
+  587  clear
+  588  cd ..
+  589  mkdir testrepo2
+  590  cd testrepo2
+  591  ls
+  592  git init
+  593  ls
+  594  ls -a
+  595  vi .gitignore
+  596  ls
+  597  ls -a
+  598  git status
+  599  git add .
+  600  git commit "Initial commit"
+  601  git commit -m "Initial commit"
+  602  git status
+  603  ls -a
+  604  clear
+  605  cat .gitignore
+  606  echo "rec1" >> file1.txt
+  607  git status
+  608  echo "rec1" >> s1.doc
+  609  git status
+  610  echo "rec1" >> file2.txt
+  611  git status
+  612  ls
+  613  git add .
+  614  git commit -m "CM1"
+  615  ls
+  616  clear
+  617  git status
+  618  git log
+  619  git log --stat
+  620  echo "rec1" >> file2.txt
+  621  git add .
+  622  git status
+  623  cat file2.txt
+  624  git commit -m "CM2"
+  625  ls
+  626  git status
+  627  cat file2.txt
+  628  git log
+  629  git log --oneline
+  630  git revert aa2286a
+  631  git revert --abort
+  632  clear
+  633  ls
+  634  git status
+  635  echo "rec1" >> file3.txt
+  636  git add .
+  637  git status
+  638  git commit -m "CM3"
+  639  git status
+  640  git log --oneline
+  641  git log --stat
+  642  git log --oneline
+  643  git revert 92212c2
+  644  git status
+  645  git log
+  646  git log --oneline
+  647  ls
+  648  git ls-files
+  649  clear
+  650  git status
+  651  git log --oneline
+  652  git log
+  653  git log --oneline
+  654  ls
+  655  git status
+  656  cd ..
+  657  mkdir testrepo3
+  658  cd testrepo3/
+  659  ls
+  660  git init
+  661  echo "rec1" >> file1.txt
+  662  git add .
+  663  git commit -m "CM1"
+  664  echo "rec1" >> file2.txt
+  665  git add .
+  666  git commit -m "CM2"
+  667  echo "rec1" >> file3.txt
+  668  git add .
+  669  git commit -m "CM3"
+  670  git log --oneline
+  671  echo "rec1" >> file4.txt
+  672  git add .
+  673  git commit -m "CM4"
+  674  git log --oneline
+  675  clear
+  676  git log --oneline
+  677  git status
+  678  ls
+  679  git ls-files
+  680  git reset --soft 0b35668
+  681  git status
+  682  git log --oneline
+  683  ls
+  684  git ls-files
+  685  git status
+  686  git commit -m "CM4-1"
+  687  git log --oneline
+  688  clear
+  689  git log --oneline
+  690  git status
+  691  git ls-files
+  692  git reset --mixed 0b35668
+  693  git status
+  694  ls
+  695  git ls-files
+  696  git status
+  697  git add .
+  698  git commit -m "CM4-2"
+  699  git status
+  700  git ls-files
+  701  clear
+  702  ls
+  703  git log --oneline
+  704  git ls-files
+  705  git reset --hard 0b35668
+  706  git log --oneline
+  707  ls
+  708  git ls-files
+  709  git log --oneline
+  710  ls
+  711  git log
+  712  git reflog
+  713  git revert 0c67c38
+  714  git revert f36977e
+  715  git reset --soft f36977e
+  716  git log --oneline
+  717  clear
+  718  history
+
+
+@@@@@@@@@@@@@
+@  DAY-3 --> 10th Dec. 22
+@@@@@@@@@@@@@
+
+Batch : Dec03	SCM - GIT
+
+GIT Branch!!!
+GIT Branching strategies!!!
+
+
+Git Repo :::
+
+git init 
+	
+master branch
+
+SCM -- used to version control and track the file changes 
+
+Local Repo ::											===> 	Remote Repo: 
+
+	master 				====> as PROD Copy.
+		file1.txt
+	
+	
+		feature-branch1
+			
+		
+	branches :
+	
+	Developer1 -
+		file1.txt 
+		
+	Developer2 -
+		file1.txt 
+
+
+
+Scenario :::
+
+	master Branch (Prod)
+	
+		Release-Branch
+		
+			Integration-Branch									Pull Request!!!! (GitHub)
+			
+				Dev-Branch	(Team1)	
+					feature1-branch 
+					feature2-branch 
+					feature3-branch 
+
+				Dev-Branch	(Team2)	
+					feature1-branch 
+					feature2-branch 
+					feature3-branch 
+
+Detailed Review!
+
+	master Branch (Prod)
+	
+		Release-Branch 
+
+				Dev-Branch	(Team2)	
+					feature1-branch 
+					feature2-branch 		
+					feature3-branch 
+
+
+jdk1.7			the release / version / tag 
+jdk1.8
+
+
+Environments!!!
+
+	DEV 
+	
+		Team1:													Java Appln.
+			Create Source Code  --> developer1 	Dev-system	
+			Create Source Code  --> developer2 	Dev-system
+			Create Source Code  --> developer3 	Dev-system
+			Create Source Code  --> developer4 	Dev-system
+			
+		Team2:													Python Appln.
+			Create Source Code  --> developer1 	Dev-system
+			Create Source Code  --> developer2 	Dev-system
+			Create Source Code  --> developer3 	Dev-system		NodeJs
+			Create Source Code  --> developer4 	Dev-system		NodeJs
+
+	Jenkins Master :				Load Balancing
+			
+			Build(compile the src)					build server1  --->  java
+			Build(compile the src)					build server2
+			Build(compile the src)					build server3
+			Build(compile the src)					build server4	python 
+			Build(compile the src)					build server5	nodejs
+			
+			Create Artifacts
+	
+		QA	Load Balancing
+			Deploy Artifacts
+			
+		UAT Load Balancing
+			Deploy Artifacts
+
+		PROD  Load Balancing
+			Deploy Artifacts
+
+
+Application :::
+
+			Muliple 
+			
+			master 
+			
+			microservices1,2,3,4
+
+
+Application:
+
+Repo1
+	master
+	
+Mircorservice1 :
+
+Repo1
+	master 
+
+Mircorservice2 :
+
+Repo2
+	master 
+
+
+
+Demo:
+
+	git checkout -b <new_branch_name>
+	git branch <new_branch_name>
+	
+	git switch -c <new_branch_name>
+
+
+	git branch -d feature3
+	git branch -D feature3		- Force delete
+
+master :
+
+	feature1 
+		echo "adf" > t1.txt 
+
+
+
+
+vi file1.txt
+
+press i    	===> to insert the records
+esc :wq		===> to save and quit the file
+esc :q!		===> to exit without saving the file 
+
+
+
+
+	master Branch (Prod)
+	
+		DEV-Branch
+			feature1-branch 			=== > changes are completed & merge to master 
+			feature2-branch 		
+			feature3-branch				=== > Changes are ready to be merged to master  
+
+
+
+
+While creating a new branch, plz ensure the current branch name and git status.
+
+Merge! 
+
+git merge - is use to merge the branches 
+
+always execute the merge cmd from the target brch
+
+
+DevOps Engg.
+
+	1. 	Create Appln. src repo for any appln to onboard to devops 
+	2.	Create src repo for DevOps Automation!
+			Create the scripts using VS Code & integrate the code with GIT repo.
+			
+Master in GIT .
+
+	Github is jus a remote repo.
+	azure repo
+	aws repo
+	gitlab
+
+
+
+	master Branch (Prod)
+
+			feature1-branch 		
+			=== > changes are completed & merge to master 
+			cm1
+			cm2
+			cm3
+			cm4
+			cm5
+			cm6
+			
+			feature2-branch 		
+			feature3-branch				=== > Changes are ready to be merged to master 
+			cm1
+			cm2
+			
+			temp-branch 
+			git merge feature3 
+			
+			
+		
+@@@@@@@
+Day-4
+@@@@@@@
+
+Git Branches!!!!
+
+	master 
+		feature1
+		feature2
+		feature3
+
+	rebase					local repo. 
+	
+	pull 					remote repo.
+	
+	
+	master 
+			cm1,cm2,cm3
+
+		feature1		==> git log --oneline 
+			cm1,cm2,cm3,cf11				==> git log --oneline 
+
+		git switch master
+		git merge feature1
+			cm1,cm2,cm3,cf11
+			
+		feature2		==> git log --oneline 
+			cm1,cm2,cm3,cf21,cf22			==> git log --oneline 
+			
+		git switch master
+		git merge feature2 
+			cm1,cm2,cm3,cf21,cf22			==> git log --oneline
+			
+		
+		
+		cm1,cm2,cm3,cf21,cf22,cf11			===> 
+		
+		cm1,cm2,cm3,cf11,cf21,cf22   --- invalid
+		
+		rebase :::
+		
+		
+	master 
+			cm1,cm2,cm3		
+		
+		git switch -c feature3 
+			cm1,cm2,cm3
+			
+		rebase 
+			cm1,cm2,cm3,cf21,cf22,cf31
+			
+	
+	Rebase
+	
+	Squash
+	
+	git merge 
+	
+	fast-fwd merge
+	
+	
+	Squash :::
+	
+		wtp
+Scenario :::
+
+	master Branch (Prod) v1.1 v1.2 v1.5
+	
+		Hot-fix Branch!(Adhoc)
+	
+		Release-Branch
+		
+			Integration-Branch									Pull Request!!!! (GitHub)
+			
+				Dev-Branch1	(Team1)		- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+					feature1-branch 	- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9 - final_commit_from_feature1
+					feature2-branch  
+					feature3-branch 
+
+				Dev-Branch2	(Team2)	
+					feature1-branch 
+					feature2-branch 
+					feature3-branch 			
+
+
+	master-branch -- cm1,cm2,cm3,cmf4,cmf4,cmf5,cmf6,cmf7,cmf8,cmf9  -- Shd always clean / free from unnecessary commits.
+
+		Rel-Branch -- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+				
+			Int-branch -- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+			
+				dev -- cm1,cm2,cm3,cmf4,cmf4,cmf5,cmf6,cmf7,cmf8,cmf9
+				
+				git merge feature1
+	
+	Squash ---> combine the multiple commits into one single commit 
+	
+		- before merge		::: (while working in the current branch)
+			git rebase -i HEAD~5
+		
+		- while merging
+	feature3 -		cm1,2,3,4,5,6,7,8,9
+	
+	git cherry-pick <commit-id>
+	
+Dev - phase 
+Continuous Development 			---> IDE - Visual Studio Code 
+Repo. Management
+
+	stash :::
+	
+	master
+		dev
+			f1				-- developer1 --- working f1 -- created some files, staged the files, s1.txt s2.txt 			
+			hotfix-branch 	-- developer1 			
+			f2
+			f3 
+	
+	git status 
+	
+	Change request Number :: 
+	
+	git switch -c develop 
+	
+	
+	
+	commit --amend
+	
+	CR --> 5 files 
+	
+	4 files 
+	
+	
+	
+	Remote!!!!
+	
+	github!!!!
+	
+@@@@@@@
+@DAY-5
+@@@@@@@
+
+	Git Branching Strategy!
+	
+	git flow 
+	gitlab flow 
+	
+	master Branch (Prod) v1.1 v1.2 v1.5
+	
+		Hot-fix Branch!(Adhoc)
+	
+		Release-Branch
+		
+			Integration-Branch									Pull Request!!!! (GitHub)
+			
+				Dev-Branch1	(Team1)		- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9
+					feature/feature1-branch 	- cm1,cm2,cm3,cm4,cm4,cm5,cm6,c7,cm8,cm9 - final_commit_from_feature1
+					feature2-branch 
+					feature3-branch
+
+
+	master
+
+		release/release1
+			develop 
+				feature/feature1
+
+  501  cd d:
+  502  cd scmdec03/
+  503  mkdir trepo1
+  504  cd trepo1/
+  505  clear
+  506  git flow init
+  507  git branch
+  508  git flow feature start feature1
+  509  echo "rec1" >> file1.txt
+  510  git status
+  511  git add .
+  512  git commit -m "CM1 from feature1"
+  513  git branch
+  514  git flow feature finish feature1
+  515  git branch
+  516  ls
+  517  git status
+  518  git flow release start rel1.0
+  519  git log --oneline
+  520  git flow release finish 'rel1.0'
+  521  git branch
+  522  ls
+  523  git tag
+  524  clear
+  525  git log --graph
+  526  git log --graph --all
+  527  git log --graph
+  528  history
+
+
+	IDE :::: Integrated Development Environment 
+	
+		Visual Studio Code 
+		Eclipse based IDEs'		
+			Visual Studio 			.net
+			Intellij				Java applications
+			pycharm					python based application 
+		
+		vi editor
+	
+	DevOps :::
+	
+		Continuous Development :::
+			coding
+			build	- process of compiling the src, create artifacts 
+			unit test 
+			integrate with git repo. 
+			artifacts will be delivered to higher envi - QA/UAT/PROD
+		Continuous Integration 
+		
+		
+		groovy
+		yaml
+		python 
+		
+		Install VS Code 
+			lot of plugings / extensions 
+	
+  507  git flow init
+  508  git flow feature start feature1
+  509  git add .
+  510  git status
+  511  echo "adfad" >> t1.txt
+  512  git add .
+  513  git commit -m "adfa"
+  514  git flow feature finish feature1
+  515  git branch
+  516  ls
+  517  git flow release start rel1.0
+  518  git status
+  519  git log --oneline
+  520  git flow release finish 'rel1.0'
+  521  git log --oneline --all
+  522  git tags
+  523  git tag
+  
