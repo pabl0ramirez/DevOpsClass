@@ -1046,9 +1046,7 @@ Day-6
 
 
 
-				dummytoken : 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				
-				
-				dummytoken1 : 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
+		
 			
 		How to use the remote repo in local machine:
 		
