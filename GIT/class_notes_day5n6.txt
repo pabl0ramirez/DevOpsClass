@@ -975,3 +975,130 @@ Repo. Management
   522  git tags
   523  git tag
   
+
+@@@@@@@@@@
+Day-6
+@@@@@@@@@@
+
+	Git Remote Repository :::
+	
+	Local Repo !
+	
+	Git Remote Repository :::
+	
+		Remote Repo: 
+		
+			Creating the Remote Servers
+			
+			Managed Service provided Remote Repos :
+			
+				Gitlab 
+				GITHUB
+				Az Repo
+				AWS Code Commit
+				Bitbucket
+			
+			Managing Remote Servers :::
+			
+				Gitlab Repo server   -- Active Server & 1 Passive Server
+				
+				Installation 
+				Allocate required volumes
+				
+				Clean-up the repos and reuse the volumes periodically
+				
+				periodic snapshots shd be scheduled
+				
+				Server level & Repository level Replicas 
+					Fork!
+			
+			Local Repo:
+			
+				master		--->
+					dev
+						feature1 
+			
+			Remote Repo1:
+			
+				master		--->
+					dev
+						feature1 				
+				
+			fork	Remote2
+			
+			#Groovy
+			#	shell,yaml,python --> API / CLI	/ plugins / libraries		
+
+#			
+#* Application Development and Release Lifecycle! 
+#			
+			DevOps!			
+			CM				
+			IAC - Terraform --> Provider ---> thru the API calls.
+			
+
+		Create Remote Repositories:::
+		
+			GITHUB 
+				
+				Public 			No Credentials are needed
+				Private 		Credentials are needed to auth the user --> Username & password / token 
+
+
+
+				dummytoken : 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				
+				
+				dummytoken1 : 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
+			
+		How to use the remote repo in local machine:
+		
+			git: 
+			
+			
+				git clone			- used to copy the remote repo into local repo.
+				git push 			- used to push the local repo changes to remote repo.
+				
+				git pull			- used to fetch and merge the incremental changes from remote repo 
+				git fetch 			- used to fetch the incremental changes from remote repo 
+				
+				git remote -v 		- used to list the remote repos that are linked/mapped with the local repo
+				git remote add 		- used to add/link/map the remote repo 	
+				git remote remove
+				
+				git clone https://github.com/LoksaiETA/testremoterepo1.git
+
+
+
+
+
+		Developer1 Machine - Local Repo.(GIT BASH)
+
+			
+		
+		Developer2 Machine - Local Repo.(GIT BASH)											
+		
+		
+		Remote Repo.
+		
+		
+		dev to main 
+		
+		git merge dev 
+		
+
+	Scenario 1 :
+	
+		if you wish to work of the existing project source code 
+		
+		git clone ---> 
+		
+	Scenario 2 :
+	
+		If you wish to write completely a new source code into a new repository 		
+		git remote add 		
+		git branch -M main
+		
+	Scenario 3 :
+	
+		Replicas / Backup
+		Fork work flow
