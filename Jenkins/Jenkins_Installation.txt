@@ -38,8 +38,9 @@ yum install jenkins
 
 
 # Setup Jenkins to start at boot,
-chkconfig jenkins on
+#chkconfig jenkins on
 
+systemctl status jenkins
 systemctl enable jenkins
 systemctl start jenkins
 
