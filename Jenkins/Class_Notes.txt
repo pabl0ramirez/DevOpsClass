@@ -1,0 +1,182 @@
+@@@@@@
+DAY-1
+@@@@@@
+
+
+		Continuous Integration using Jenkins!
+		
+		
+		DevOps Process, 
+		
+			dev						Continuous Dev. Stage -- IDE - Eclipse GIT
+			int
+			deli
+			deployment
+			monitor
+			
+		Build Orchestration Tool like Jenkins! to achieve CI/CD.
+		
+		C.I.
+		
+		Java Application -- Mavan Web Application!
+		
+		
+		Coding - Build - Create Artifacts - Promote the App to Higher Environment for further testing --> Production -- Monitor
+		
+	Jenkins --> Build Orchestration Tool
+	
+		Coding 						==> Eclipse IDE, GIT
+		Build						==> Compiling the source code & Create Artifacts(binaries *.jar / *.war) *.dll / *.exe
+										Maven build 
+		Deployment 					==> Ansible/Docker/K8s / SSH ( Deployed to Testing envi.)
+		Automated Testing 			==> Junit / Selenium
+		Prod Deployment 			===> Ansible/Docker/K8s
+		Monitoring(Appln./Infra.) 	===> Prometheus / Grafana / AppDynamics
+		
+		
+	Pipeline as scripts == Uses Groovy Scripts!
+	
+	:::
+	
+	Jenkins Architecture!
+	
+	What is the role of DevOps Engineer ?
+		
+		Jenkins Server Level Management :
+			Jenkins Administrator.			Master / slave - Architecture.
+			Create Jenkins Servers 
+			Manage Jenkins Servers/
+			Manage Jenkins Users
+			Manage Jenkins Plugins
+			Manage Upgrades
+			Manage Backups / Recovery
+			
+		Jenkins - Application Level Management :		
+			Create Jenkins CI/CD Jobs			
+			Create CI/CD Pipeline Templates 
+			
+	
+	What is the role of Developer ?
+		Just considers as a consumer of Jenkins Tools & Services.
+		CI/CD Pipeline Templates 
+		
+		User1 : --> CI/CD Pipeline Execution, Check the Jenkins Job console for Output, Trigger any dependency build. 
+	
+	
+	Jenkins : Groovy Scripts!
+	Gitlab-ci,Az pipeline,AWS CodeBuild	: Yaml Scripts / Python
+	
+	Scripts :::
+	
+		Data 
+		Variables
+		Arrays
+		File System
+		Looping
+		Condition Stmts
+		Remote connection & Remote server Handling.
+		
+		Handle the Tools specific - CLI Commands / APIs
+	
+
+	Jenkins Architecture ::
+		Master - Slave		VMs			-- Is used to distribute the Jenkins Workload.
+
+			Master -- Install Jenkins -- Create Jenkins CI/CD Pipeline Jobs -- Execute CI/CD Pipeline
+			
+				Slave Machines == Actual Build Happens. 
+		
+	
+	
+	Master -- Install Jenkins -- Create Jenkins CI/CD Pipeline Jobs -- Schedule the jobs to corresponding Slave Machines
+		
+		Slave1		Java Application  -- Jdk / GIT / Maven  ---> 1000 Microservices - > Storage / CPU
+		Slave1.1	Java Application  -- Jdk / GIT / Maven  ---> 1000 Microservices - > Storage / CPU
+	
+		Slave2		.Net Application	-- .Net Framework
+		Slave3		Python Web Application -- PY
+		
+		
+	Load - Balancing!
+	
+	Ansible  / Terraform!
+	
+	
+	
+	CI/CD Pipeline ????
+	
+	
+	
+	Coding - Build - Create Artifacts - Promote the App to Higher Environment for further testing --> Production
+		
+		
+	CI/CD Pipeline/Job ????
+	
+	Stages :
+		
+		SCM Checkout Stage 
+		Build 
+		Create Artifacts
+		Deploy/Deliver to target Machine 
+		
+	
+	
+	Installation of Jenkins Servers ::
+	
+		Master & Slave Architecture 
+		
+	https://www.jenkins.io/doc/book/installing/
+	
+		Configure Jenkins Master :
+		
+			Jenkins should be installed in Master only.
+			
+			Access Jenkins thru browser!
+			
+			Jenkins should be executed as a service in that VM.
+			Runs in port 8080.
+			
+			<ip-Elastic/static/public>:8080
+			
+			REST APIs
+			
+			Load 
+			
+			json / yaml 
+			
+	
+	VS Code :::
+		Install some extension -
+		
+		Jenkins Server 
+		
+			Master / Slave Architecture
+	
+	Install Jenkins & Started in Web Browser using Port : 8080
+	http://<external_ip_addr>:8080
+	
+	#http://43.204.216.161:8080/
+	
+	
+	
+	
+	On Jenkins Dashboard :::
+	
+	Build Executer -- No. of build that can be executed simultaneously! - 5  
+	
+	If I trigger 10 Jobs? 
+	
+	
+	
+	Build Queue
+	
+	
+	
+	Jenkins Master 	--> Non-Prod 
+	
+		build and deployment in Non-Prod Environments(DEV/QA/UAT) 
+		
+	Jenkins Master  --> Prod
+	
+		To execute Production Jobs 
+	
