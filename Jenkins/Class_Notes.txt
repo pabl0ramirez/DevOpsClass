@@ -2,7 +2,6 @@
 DAY-1
 @@@@@@
 
-
 		Continuous Integration using Jenkins!
 		
 		
@@ -155,23 +154,16 @@ DAY-1
 	Install Jenkins & Started in Web Browser using Port : 8080
 	http://<external_ip_addr>:8080
 	
-	#http://43.204.216.161:8080/
-	
-	
-	
-	
+	http://43.204.216.161:8080/
+
 	On Jenkins Dashboard :::
 	
 	Build Executer -- No. of build that can be executed simultaneously! - 5  
 	
 	If I trigger 10 Jobs? 
-	
-	
-	
+
 	Build Queue
-	
-	
-	
+
 	Jenkins Master 	--> Non-Prod 
 	
 		build and deployment in Non-Prod Environments(DEV/QA/UAT) 
@@ -179,4 +171,208 @@ DAY-1
 	Jenkins Master  --> Prod
 	
 		To execute Production Jobs 
+	
+@@@@@@@@@
+DAY-2
+@@@@@@@@@
+
+
+		Launch Ec2 instances, and access thru MobaXterm!
+		
+		Jenkins Job/project?
+			
+			Pipeline Jobs
+			
+			Stages :::: 
+
+			Trigger the builds!
+			
+		Infra Team !!!
+		
+			Environments ::
+			
+			Non-Prod 														Prod Envi.
+			
+			Dev																Prod_Servers 
+			Testing Servers 
+				QA
+				UAT
+				pre-prod/staging
+				
+			
+			Run these servers only during business hrs.
+			Jenkins Job ==> Start and stop the servers as per schedule.
+			
+			Plugins ==> Extensions to Jenkins 
+	
+			Installed Maven :: latest version 
+
+			Software / Appln. Package Management :
+			
+				latest verion 				
+				current -1 version 
+				
+			
+			Software Central ==> d:/jenkins/plugins
+	
+	
+	
+			Jobs -- can be triggered Manually / thru some schedules
+			1
+			
+			
+			job1 --> Tasks(backup of volume/Start dev servers) ==> Notify the users about the status of the job.
+			
+			Job1(to copy some files from dev server to qa server) --> Job2(Cleanup my dev Server)
+			
+			Serial Execution.
+			
+			Created Jenkins Free Style Project
+			
+			Generic!
+			
+			Job1 ==> 	(Deploy the artifacts to Target servers(QA/UAT/PROD....100))
+			
+			Parameters! -- Variables!
+			
+				-	Environmental Variables			
+				
+				-	User-Defined Variables
+			
+			Email notification:::
+			
+			job1 --> Tasks(backup of volume/Start dev servers) ==> Notify the users about the status of the job.
+				
+			echo "jenkins-${JOB_NAME}-${BUILD_NUMBER}"
+			
+			Jenkins - Freestyle project.
+			
+			Pipeline Project. 
+
+
+
+
+
+			CI/CD Pipeline-Project1
+			
+			Stages :
+				
+				SCM Checkout Stage 
+				Build 
+				Create Artifacts
+				Deploy/Deliver to target Machine - PROD		
+		
+
+			CI/CD Pipeline-Project2
+				Perform Auto-Monitoring for Envi & User Access
+
+			CI/CD Pipeline-Project2
+			
+			Stages :
+				
+				SCM Checkout Stage 
+				Build 
+				Create Artifacts
+				Deploy/Deliver to target Machine 	
+			
+			
+			How to create Jenkins Pipeline!!!   - scripts/code
+			
+			
+			CI/CD Pipeline-Project1					
+				
+				SCM Checkout Stage 
+			
+			CI/CD Pipeline-Project3				
+				
+				Code Build 
+	
+	
+		Jenkins Pipeline Project:::
+		
+			Scripted Pipeline
+node {
+    def mvnHome
+    stage('Preparation') { // for display purposes
+        // Get some code from a GitHub repository
+        git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+        // Get the Maven tool.
+        // ** NOTE: This 'M3' Maven tool must be configured
+        // **       in the global configuration.
+        mvnHome = tool 'M3'
+    }
+    stage('Build') {
+        // Run the maven build
+        withEnv(["MVN_HOME=$mvnHome"]) {
+            if (isUnix()) {
+                sh '"$MVN_HOME/bin/mvn" -Dmaven.test.failure.ignore clean package'
+            } else {
+                bat(/"%MVN_HOME%\bin\mvn" -Dmaven.test.failure.ignore clean package/)
+            }
+        }
+    }
+    stage('Results') {
+        junit '**/target/surefire-reports/TEST-*.xml'
+        archiveArtifacts 'target/*.jar'
+    }
+}
+			
+			
+			Declarative Pipeline 
+
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+		
+        stage('SCM Checkout') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+		
+        stage('Build') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Create Artifacts') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+		
+    }
+}	
+	
+	
+	
+	
+		Pipeline Snippet Generator
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+	
 	
