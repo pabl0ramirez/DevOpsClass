@@ -361,7 +361,20 @@ pipeline {
 		Pipeline Snippet Generator
 	
 	
-	
+Summary ::
+
+		Jenkins :
+			Understand the importance of Jenkins ::
+				Master / Slave 
+			Installation of Jenkins in Amazon Linux Machine
+			Explore Jenkins Dashboard 
+			Manage Jenkin :
+				Sys Config - Plugin Manager - Global tool config
+			Create Freestyle Project & Pipeline Projects			
+			How to run
+			How to check the console output 
+			Variables : Environment Variables & User-Defined Variables
+			Pipeline Stages
 	
 	
 	
