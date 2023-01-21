@@ -86,7 +86,15 @@ sudo ln -s /opt/apache-maven-3.8.7 /opt/maven
 #open .bash_profile & add the following lines:
 
 #java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64 
-java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64
+#java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64
+vi .bash_profile
+
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64"
+export MAVEN_HOME=/opt/apache-maven-3.8.7
+export M2=/opt/apache-maven-3.8.7/bin
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME:$M2
+
+vi .bashrc
 
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.16.0.8-1.amzn2.0.1.x86_64"
 export MAVEN_HOME=/opt/apache-maven-3.8.7
