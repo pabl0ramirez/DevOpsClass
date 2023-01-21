@@ -49,8 +49,12 @@ systemctl start jenkins
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#Launch New AWS Linux Instances
+
 #Execute in Slave Nodes:
 
+sudo -i 
 #Install epel Package:
 amazon-linux-extras install epel
 
