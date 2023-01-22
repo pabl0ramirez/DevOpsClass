@@ -324,13 +324,9 @@ pipeline {
     agent any
 
     stages {
-        stage('SCM Checkout') {
-            steps {
-                echo 'Hello World'
-            }
-        }
 		
         stage('SCM Checkout') {
+		
             steps {
                 echo 'Hello World'
             }
@@ -355,11 +351,7 @@ pipeline {
     }
 }	
 	
-	
-	
-	
 		Pipeline Snippet Generator
-	
 	
 Summary ::
 
@@ -374,18 +366,298 @@ Summary ::
 			How to run
 			How to check the console output 
 			Variables : Environment Variables & User-Defined Variables
-			Pipeline Stages
+			Pipeline Stages 
+	
+@@@@@@@
+DAY-3
+@@@@@@@	
+	
+	
+		-	Pipeline Snippet Generator		
+		-	Jenkins Master & Slave Configuration!
+	
+	Master -- Install Jenkins -- Create Jenkins CI/CD Pipeline Jobs -- Schedule the jobs to corresponding Slave Machines
+		
+		Slave1		Java Application  -- Jdk / GIT / Maven  ---> 1000 Microservices - > Storage / CPU
+		Slave1.1	Java Application  -- Jdk / GIT / Maven  ---> 1000 Microservices - > Storage / CPU
+	
+		Slave2		.Net Application	-- .Net Framework
+		Slave3		Python Web Application -- PY		
+	
+	
+	- Create Jenkins Master Slave Architecture :::
+	
+		Jenkins Master			---> jdk, jenkins
+		
+			Slave1 - build a Java Maven Web Application ==> git, jdk, Maven
+			What is Application Build ?
+				Is a process of compiling the src code and create artifacts(*.war)
+				
+			SSH Connection :::
+				Create a valid user with SSH Keys (private/public)
+				
+			
+		How to Configure Jenkins Slave/Node
+
+	
+	***Jenkins_master ( Non-Prod )					
+	***Jenkins_master ( Prod )
+	
+	
+@@@@@@@
+DAY-4
+@@@@@@@	
+
+	Jenkins Master
+		Slave Machine 
+		
+	Configured Node in Jenkins 
+		
+		Simple freestyle project / simple Pipeline project 
+	
+	Distributed build!
+	
+	Build !!!!
+	
+		Java Maven Web Application ===> 
+		Perform Build
+		Create Artifacts 
+		
+		Deploy the artifacts.
+		
+	CI/CD 
+	
+		--> SCM Checkout 
+		
+	Overview of Application Development Process ::::
+	
+	
+	Developer1 
+	
+		New Project 		
+		Bugfix		
+		Enhancements
+	
+	Development Cycle :::
+	
+		Developer1 --> Create the Source Code, build, create artifacts, Perform Unit Testing.
+	
+		Artifacts will be promoted to Higher Environment! (QA/UAT/Staging)
+		
+	Test Cycle :::
+		(QA/UAT/Staging)
+		
+	Release Cycle :::
+		(Prod)		
+		
+	Who are all involved in this process ????
+	
+		Developers
+			Appln. Lead/Owner 
+		Testing Team
+			Perform End-to-end Testing
+		Release Management Team 
+			Prod Release 		
+		
+		Emails ::::
+		
+		Testing Team :::: SLA --- 10 Days 1 1-2 Days within 2hrs 
+		
+		Emails - Developers / Release Management Team  
+		
+	DevOps ::::
+	
+		1. Improve the Developers Productivity --> 
+			Developers --> Commit the src code into the src code repo.  (Microservice) 	Contiuous Integration 			jdk11, Maven, tomcat8.0 
+			
+							Jenkins will takes the responsibility to perform build, artifacts creation, automated unit testing.			Package/image1 (*.war,jdk11,tomcat8.0)		
+								Once the Unit is completed 	--> if it is successful promote the artifacts to Test envi. & Notify Testing Team.
+															--> if it is failing --- Notify Developer to fix that issue.
+			
+		2. Reduces the Testing Time (QA Envi.) == Static Testing 	Continuous Testing (QA/UAT/PROD) ---> jdk8, tomcat7.0  image1
+			Testing Team == Test Automation. ==> Notify the status.
+			API / CLI Command 
+			
+				Creating the Test Scenarios 
+				Test Cases -- 50 
+				Test Data
+				Test Strategies --> Regression!
+				
+				Covered all the test Scenarios ???
+				
+				Test Reports - TestNG ==>  == 100% Test coverage and it is successful.
+				
+				Notify to Dev & Rel. Mgmt. Team
+				
+			UAT Envi.				
+				Business Users will do the UAT Testing.				
+				Dynamic 
+				
+				Notify to Rel. Mgmt Team 			
+			
+		
+		3. Increase the Release cycles 
+		
+				Continuous Delivery / Deployment
+				
+				Security team. ==> Security Audit --> Security Scanning --> Static/Dynamic 
+		
+				Release -- Prod. Version 
+				
+			Continuous Monitoring - AppDynamics / Promethus / Nagios / Splunk -- Jenkins pipeline 
+			
+	Automate This Process :::
+	
+		Jenkins 
+	
+	www.amazon.com !  infra, code 
+	
+		signup  			-->  	User Information --> dbase --> src code (fetch_user_details.java) - container1(many replicas) Image
+		
+		signin
+		search
+		order
+		payment
+		track 
+	
+	Mircoservice Architecture! ==> Application Owner / Architects 
+	
+		Git Workflow
+		
+		Git Branch Strategies 
+		
+		CI/CD Pipeline 
+	
+	Java appln. Artifacts -- are created == jdk, maven, tomcat / nginx
+	
+	Containers == Docker Container 
+	
+	Kubernetes is a Container Orchestration Tool.
+	
+		Ensure High availability of your appln. ???
+		Load Balancing
+		Auto-Scaling!		Scale-Up / Down
+	
+	Jenkins -- Build Orchestration Tool.
+	
+	AWS -- EKS
+	AZ 	-- AKS
+	GCP -- GCP 
+	
+IAC 
+	Ansible --> CMS
+	Terraform --> 
+	
+Jenkins CI Pipeline :::
+
+	Jenkins will takes the responsibility to perform build, artifacts creation, automated unit testing.
+	
+	
+	First :
+	
+		Checkout the code from SCM
+		
+		Build & Create Artifacts!
 	
 	
 	
+pipeline {
+    agent {
+        label 'Slave1'
+    }
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+                echo 'adfasdfasdfasdfasdf'
+                sh 'echo "adfasd" >> f1.txt'
+            }
+        }
+    }
+}
+
+pipeline {
+    
+    agent {
+        label 'Slave1'
+    }
+
+    tools 
+    {
+        maven 'Maven-3.8.7'
+    }
+    
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+
+            }
+			}
+        stage('Build') {
+            steps {
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+			}		
+    }
+}
+
+
+	Next :::
+		Deploy to QA Envi.
+		
+			Launch a Instance 
+				install jdk
+				install tomcat 
+			
+			Connect this to Jenkins Master 
+			Use Publish over SSH Plugin to copy the artifacts from slave1 to QA Server.
+			
+			
+
+
+	Understand about Java Maven Project !!!!
 	
+	Java Project !
 	
+		*.java -->
+		
+	Java Maven appln. --> simple desktop / Web Appln.
 	
-	
-	
-	
-	
+		Maven is a Build Automation Tool.
+		
+		Plugins/dependencies needed to perform Maven Build. 
+		
+		mvn clean package -Dmaven.*.*.*
+		mvn build 
+		mvn clean install
 		
 		
-	
-	
+		POM.xml file 
+		  it is created by developers and maintain it in the source code repo.
+		
+
+Summary ::
+
+		Jenkins :
+			Understand the importance of Jenkins ::
+				Master / Slave 
+			Installation of Jenkins in Amazon Linux Machine
+			Explore Jenkins Dashboard 
+			Manage Jenkin :
+				Sys Config - Plugin Manager - Global tool config
+			Create Freestyle Project & Pipeline Projects			
+			How to run
+			How to check the console output 
+			Variables : Environment Variables & User-Defined Variables
+			Pipeline Stages 
+			
+			
+			Working on Master & Slave 
+			
+			Create CI Pipeline for Maven Build 
+			
+			
