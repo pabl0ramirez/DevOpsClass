@@ -24,11 +24,11 @@ DAY-1
 		
 	Jenkins --> Build Orchestration Tool
 	
-		Coding 						==> Eclipse IDE, GIT
-		Build						==> Compiling the source code & Create Artifacts(binaries *.jar / *.war) *.dll / *.exe
-										Maven build 
-		Deployment 					==> Ansible/Docker/K8s / SSH ( Deployed to Testing envi.)
-		Automated Testing 			==> Junit / Selenium
+		Coding 						===> Eclipse IDE, GIT
+		Build						===> Compiling the source code & Create Artifacts(binaries *.jar / *.war) *.dll / *.exe
+										 Maven build 
+		Deployment 					===> Ansible/Docker/K8s / SSH ( Deployed to Testing envi.)
+		Automated Testing 			===> Junit / Selenium
 		Prod Deployment 			===> Ansible/Docker/K8s
 		Monitoring(Appln./Infra.) 	===> Prometheus / Grafana / AppDynamics
 		
@@ -124,7 +124,7 @@ DAY-1
 	
 		Master & Slave Architecture 
 		
-	https://www.jenkins.io/doc/book/installing/
+		https://www.jenkins.io/doc/book/installing/
 	
 		Configure Jenkins Master :
 		
@@ -577,6 +577,41 @@ pipeline {
     }
 }
 
+
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M3"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+    }
+}
+
+
 pipeline {
     
     agent {
@@ -654,10 +689,185 @@ Summary ::
 			How to check the console output 
 			Variables : Environment Variables & User-Defined Variables
 			Pipeline Stages 
+				Pipeline snippet generator!!!!
 			
 			
 			Working on Master & Slave 
 			
 			Create CI Pipeline for Maven Build 
 			
+
+@@@@@@@@
+DAY-5
+@@@@@@@@
+
+		Junit -- unit test! 
+		
+		Slave Machine!!! 	--> Build Server -- install Maven.
+		
+								Build Server -- Install Python.
+
+
+
+
+pipeline {
+    
+    agent {
+        label 'Slave1'
+    }
+
+    tools 
+    {
+        maven 'Maven-3.8.7'
+    }	
+    
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git "${GIR_REPO_URL}"
+
+            }
+			}
+        stage('Build') {
+            steps {
+                // Run Maven on a Unix agent.
+                //sh "mvn -Dmaven.test.failure.ignore=true clean package"
+				sh "${MVN_Command}"
+            }
+			}
+    }
+}
+
+
+Important Maven Commands
+
+mvn -version 		==> Find the maven version
+mvn compile 		==> compiles source files
+mvn test-compile 		==> compiles test files - one thing to observe is this also compiles source files
+mvn clean 		==> deletes target directory
+mvn test 		==> run unit tests
+mvn package 		==> creates a jar for the project
+help:effective-settings 	==> Debug Maven Settings
+help:effective-pom 	==> Look at the complete pom after all inheritances from parent poms are resolved
+dependency:tree 		==> Look at all the dependencies and transitive dependencies
+dependency:sources 	==> Download source code for all dependencies
+-debug 			==> Debug flag. Can be used with all the above commands			
+
+
+workspace/SCM-Demo-CIPipeline-JavaMVN/target/mvn-hello-world.war
+
+Continuous Integration 
+
+CI/CD 
+
+	Deployment ::::
+	
+			Deployment -- process of copying the artifacts from one server to another.
 			
+							Eg.: Build_Server to QA to UAT to Prod 
+
+	
+		Jenkins_Master 
+			Jenkins_Slave 	build, created artifacts.			*.war
+			
+			Host_Servers / target servers / deployment servers ==> VM - Hardware
+				--> Install Application Server - Software (Tomcat/Nginx)
+			
+			
+			Deploy the artifacts from Build_Server to Tomcat_Server thru Jenkins pipeline.
+			
+			
+	
+	
+		Dev		--> 	Build_Server	-->		Test_Servers(QA/UAT)	--> 	Production_Servers
+		
+		
+		Tomcat_Server Installation :::		
+		
+		
+	DEV Team ::: Build_Server --> create artifacts. *.war 
+	
+	Testing Team ::: 
+		Test Environment : *.war 
+		We need Application_Server(Tomcat) to run the java web application.
+		
+		
+		
+		Infra-structure Team :::: Provisioning Infra-structure and Configure the Infra-structure
+			Terraform/Ansible.
+			
+			
+	Jenkins Automated Deployment - Workflow :::
+	
+		Jenkins_Master
+			Jenkins_Slave		--> created artifacts here mvn-hello-world.war
+		
+		QA-Server with Tomcat.
+		
+			devopsadmin & private key.
+			
+			Deploy/copy *.war file 	--> from Jenkins_Slave 				to 		QA-Server/Tomcat-Server
+									--> target/mvn-hello-world.war		to 		/opt/tomcat/webapps	
+
+		
+		Publish-over-ssh Plugins ::::
+		
+		Docker
+		Ansible
+		Kubernetes 
+		
+		Publish-over-ssh Plugins :::: Install and Config in Jenkins Master
+		
+			-	Install Publish-over-ssh Plugin and restart Jenkins Master.
+				Enable Restart Option while installing this.
+				(or) systemctl restart jenkins 
+			
+			- 	Go to Manage Jenkins - > Config System 
+		
+		
+		CI/CD --->
+		
+		Jenkins_Master
+			Jenkins_Slave		--> created artifacts here mvn-hello-world.war
+		
+		QA-Server with Tomcat.
+		
+			devopsadmin & private key.
+			
+			Deploy/copy *.war file 	--> from Jenkins_Slave 				to 		QA-Server/Tomcat-Server
+									--> target/mvn-hello-world.war		to 		/opt/tomcat/webapps		
+
+		VCS -- GIT source 
+		
+		version control the Artifacts 
+			use Artifactory Repository eg.: Jfrog Artifactory
+			
+			mvn-hello-world:v1.0_SNAPSHOT
+			mvn-hello-world:v2.0_SNAPSHOT
+			
+			PROD_Envi 
+		
+		Jenkins *
+		
+		CI/CD 
+		
+		Continuous Integration
+		Continuous Delivery
+		Continuous Deployment
+		
+		Build_Server ---> QA --> UAT ---> (Approval Stage) ---> PROD_Server 
+		
+		CI/CD Pipeline!
+
+Next:::
+		
+		build periodic, poll scm, github webhook! == automate the build trigger!
+		
+		Email Notification 
+		
+	Developers Create the src code using IDE --> Commit to GITHUB --> 
+	
+		Jenkins!
+		
+			M/Slave/plugin Management/ConfigSys/Build Pipeline/QA-Server(Tomcat)
