@@ -1,0 +1,151 @@
+**************************************************************************************
+
+#Github webhook to automatically trigger build pipeline!
+
+#Goto Github Repository setting, 
+Select webhook, 
+
+Click Add Webhook
+
+Enter Jenkins Master URL. eg.:
+http://<public-IP>:8080/github-webhook/
+
+http://35.154.44.76:8080/github-webhook/
+
+Choose the push event and save the webhook configuration
+
+http://65.2.127.202:8080/github-webhook/
+
+
+GMAIL :::
+
+	server:  smtp.gmail.com
+	port : 465
+
+
+
+SMTP Server: smtp.office365.com
+SMTP Port : 587
+Credentials: Add Admin email id & PSWD
+Check TLS
+Click Advance LinK:
+
+Dmail.smtp.starttls.enable=true
+
+
+
+
+
+
+**********************************************************************************
+
+Build Periodic:
+want to trigger a build for every one hour only
+
+
+Intall GIT on your Jenkins Master!
+
+	Poll SCM:
+	want to trigger a build for every one hour only if there is any commit happened in the src repo    commit1
+
+	Github Webhook!!
+	want to trigger a build for every commit happened in the src repo 
+
+DEV envi.
+
+	Dev1 == commit to his src code repo --->>
+	to perform some unit testing 
+	
+	His test cycle runs every 6 hrs.
+	
+		- Code promotion to QA 
+		
+	poll SCM !
+	
+		Done with QA Testing src code has been updated the the required commit 
+		
+	GITHUB Webhook !
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pipeline {
+    
+    agent {
+        label 'Slave1'
+    }
+
+    tools 
+    {
+        maven 'Maven-3.8.7'
+    }
+    
+    stages {
+        stage('SCM-Checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+                  mail to:"dummyid@gmail.com", from: 'dummyid@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "we failed."
+                }
+              }
+			}
+        stage('Build') {
+            steps {
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+              post {
+                failure {
+                  sh "echo 'Send mail on failure'"
+                  mail to:"dummyid@gmail.com", from: 'dummyid@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "Build failed."
+                }
+              }
+			}
+
+        stage('Deploy to QA AppServer') {
+            steps {
+				script {
+					sshPublisher(publishers: [sshPublisherDesc(configName: 'QA-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: 'target/', sourceFiles: 'target/mvn-hello-world.war')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+				}
+            }
+              post {
+                success {
+                  sh "echo 'Send mail on success'"
+                  //mail bcc: '', body: 'success', cc: '', from: '', replyTo: '', subject: 'success', to: 'dummyid@gmail.com'
+                  mail to:"dummyid@gmail.com", from: 'dummyid@gmail.com', subject:"SUCCESS: ${currentBuild.fullDisplayName}", body: "we passed."
+                }
+                failure {
+                  sh "echo 'Send mail on failure'"
+                  mail to:"dummyid@gmail.com", from: 'dummyid@gmail.com', subject:"FAILURE: ${currentBuild.fullDisplayName}", body: "we failed."
+                }
+              }	
+		}
+    }
+}
