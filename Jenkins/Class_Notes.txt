@@ -871,3 +871,142 @@ Next:::
 		Jenkins!
 		
 			M/Slave/plugin Management/ConfigSys/Build Pipeline/QA-Server(Tomcat)
+			
+@@@@@@@@
+Day-6
+@@@@@@@@
+
+	Automated Build & Deployments!!!
+	
+		Jenkins Job Scheduler :::
+		
+		
+		-	Developer using their VS Code / Eclipse IDE for Coding & Development 
+		-	Commit the src code to github repo.
+		- 	Jenkins CI/CD pipeline shd get triggered automatically!..
+
+		
+		
+		Job1 --> Job2 
+		
+	 UseCase1 : 
+	 
+	 Jenkins Admin ;;; 
+	 
+		Non-Prod Servers 									Prod-Servers 
+		
+		DEV													PROD-1,2,3 
+		QA
+		UAT
+		
+		
+	Jenkins Master - Non-Prod & 
+	
+	
+	
+	Prod -- Replicas of Prod Jenkins_Master
+
+		Schedule Jobs ::: 
+			- Jenkins Job1 --> Start all my Non-Prod Server @9AM EveryDay
+			- Jenkins Job2 --> Stop all my Non-Prod Server @9PM EveryDay
+			
+		Production_Servers --> 
+		
+			CPU
+			Memory ==> Cleanup unwanted files from Prod.  Jenkins 
+			
+			
+			Jenkins Workspace  --> last 3 days projects in workspace
+
+		
+		Github webhook :
+			want to trigger a build for every commit happened in the src repo 
+		
+		Poll-SCM :		
+			want to trigger a build for every one hour only if there is any commit happened in the src repo
+			
+		
+	Build-Cycle :: CI  -->  Unit level Testing -- Always Continuous
+	
+	Test-Cycle :: QA / UAT (daily 9AM)
+					CI/CD --> based upon time interval. 
+					
+					4Hours ---> Poll-SCM :
+					
+	
+	Prod Release-Cycle ::
+						Continuous Delivery / Deployment
+						Hourly Release 
+						daily prod release
+						bi-weekly
+						monthly 
+						
+						
+	Job1 				--> 
+	
+	Job2 				
+	
+	Job3 
+						
+	
+	
+	Github 
+	
+	gitlab
+	
+	az-repository
+	aws-code commit 
+	g-repos 
+	
+	
+	
+	
+	
+	Notification !!! 
+	
+	Automation!
+	
+		build - success/failure 
+		
+		ALL the failures should be notified.
+		
+		SCM checkout - success ==>
+		
+		Deploy to QA - successful/Failure -- Notify to DEV 
+		
+		UAT --> Business User 
+		
+		Prod --> Rel Mgmt Teams 
+		
+	Email Notifications!
+	
+		Envi Varibles 
+		
+		
+		To Enable Email Notification ::
+		
+			-	Configure Email Server.
+			-	Pipeline Snippet Generator to create the syntax for Email Notifications
+			- 	Update the pipeline as a post build action.
+	
+CI/CD 
+
+		Jenkins_Master ==> Non-Prod 
+		
+			DEV-Envi
+			QA-Envi
+			UAT-Envi
+		
+		
+		Monitoring Tools :::
+			Jenkins_master 
+		
+		
+	Summary ::::
+	
+			Build Triggers :
+				poll scm | build periodic | github webhooks
+				
+			Email Notification :
+			
+			Misc. Admin : Global Security , credential Mgmt.
