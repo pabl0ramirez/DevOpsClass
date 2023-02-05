@@ -947,9 +947,7 @@ Day-6
 	Job2 				
 	
 	Job3 
-						
-	
-	
+		
 	Github 
 	
 	gitlab
@@ -957,11 +955,7 @@ Day-6
 	az-repository
 	aws-code commit 
 	g-repos 
-	
-	
-	
-	
-	
+
 	Notification !!! 
 	
 	Automation!
@@ -1010,3 +1004,130 @@ CI/CD
 			Email Notification :
 			
 			Misc. Admin : Global Security , credential Mgmt.
+			
+	
+@@@@@@@@
+DAY-7
+@@@@@@@@		
+		
+		Deployment Pipeline.
+		
+		Java-mvn Appln.
+		
+		Jenkins Admin :
+			
+			Provision the required Jenkins Servers
+		
+		Jenkins Architecture::
+				
+			-	Build, deployment, testing, code_scan & Code Coverage --- DevOps 			--> groovy,shell
+			
+			-	Provision the servers							Terraform -- HCL 
+			-	Dynamically configure the servers				yaml
+			-	Maintainance / Management						yaml, python, shell
+					Non-Prod						Prod 
+						Start servers					Start servers
+						Stop 
+						Restart 
+					Manage the Volumes 
+					Clean-up the storage
+					Add/Monitor the server and its usage 
+					
+		Jenkins Server Management :::
+			
+			Install & Config the jenkins servers 				--->  plugins 
+				Release -- 
+			Upgrade -- regular upgrade 
+			
+			Planing the Upgrade :::
+			Plugins Management
+			Users Managements
+			Remote Server Managements
+			Slave Machines Config & Mgmt.
+			
+		
+		Snap of Volumes ---> Daily basis. 
+		
+		/etc/				
+			Jenkins_config
+			Jenkins_Jobs
+			Jenkins_user & Workspaces
+			
+		EC2 Instance - jenkins with all dependencies. 
+			copy of Image --> AMI --> using this backup Image, we can create a new server.	
+			
+			IAC Tools --> Terraform / Cloud formation templates - CFT (AWS) / 
+		
+	
+	Active Jenkins & Passive Jenkins 
+	
+	Jenkins_Master 
+		Jenkins_master  - scheduling
+		
+			Slave1,2,3,4,5,6
+			
+		Non-Prod 						Prod
+		DEV,Build,Test					LIVE Releases
+		
+		Jenkin_Master					Jenkins_Master (Active Jenkins & Passive Jenkins) 
+		
+	
+		Upgrade :::
+		
+			local copy of the jenkins config 
+			
+			/var/lib/jenkins 
+		
+			mv /var/lib/jenkins /var/lib/jenkins_bckup02-04023
+			
+			/var/lib/jenkins
+			
+			External Storages! ---> s3 Buckets! 
+			
+					
+				
+		GIT -- version controll all our automation scripts.
+		
+		github
+		gitlab -- gitlab-ci (yaml)
+		bit bucket
+		az repo ... -- azure pipeline (yaml)
+		
+		
+		Use Case:::
+			
+			- Adhoc Requirement ::: Prod Issue.
+			
+			Dev Cycle 
+			Build Cycle
+			Release-Cycle
+			
+			- Developer1 ==> fix --> build .. unit test .. QA, UAT, staging, Prod 
+			
+			Adhoc test servers .... 
+			
+			Jenkins ::::
+			
+			current workflow :
+				scm_checkout --> build --> code_scan & Code Coverage --> create_artifacts --> deploy_to_qa --> deploy_to_uat --> PROD 
+			
+			Adhoc_pipeline ::
+			
+				scm_checkout --> build --> create_artifacts --> provision_QA_Server --> Config_QA_Server --> deploy_to_qa --> provision_QA_Server --> Config_QA_Server ---> deploy_to_uat --> PROD
+				
+			Pipeline_cleanup the servers.
+		
+		
+			Master 
+				Slaves 
+			
+	End-to-end Jenkins Pipeline :::
+		
+	scm_checkout --> build --> create_artifacts --> provision_QA_Server --> Config_QA_Server --> deploy_to_qa --> provision_QA_Server --> Config_QA_Server ---> deploy_to_uat --> PROD	
+		
+		Code Scan --> Code Coverage 		-- Sonarqube Analyzer --> HP Fortify --> CheckMarx
+		Docker Image Build
+		terraform
+		Ansible 
+		Kubernetes 
+		Monitoring 
