@@ -1,0 +1,139 @@
+Ansible!!!
+
+#########
+				
+#########
+
+		Jenkins -- Build Orchestration Tool!
+		 Maven --
+		 
+		Ansible 
+		
+			What Config mgmt. tool - IAC - Types 
+			
+			Ansible and its features & Capabilities
+			
+			Ansible Architecture
+			
+				Modules, Inventory, Playbooks, Plugins, ansible_Config File, Targets
+				
+			Configuration
+			
+			Deployment
+			
+			Install and Config Ansible Controller and Nodes
+			
+			Creating Ansible contoller ?
+			
+			Nodes 
+			
+			Infra-Structure! ---> Provision using IAC Tools like Terraform 
+							 ---> Configured using IAC Tools like Ansible 
+			
+			On-prem
+			cloud
+			Hybird 
+			
+			Ansible Client Server Architecture 
+			It is Agentless
+			It uses push mechanism to config the target machine
+			
+			Ansible Controller 
+				Target1,2,3,4,5,6,7,.....,n
+			
+			
+			Jenkins_Master
+				Slave 
+				QA-Server 
+			
+			Ansible Controller 
+				Dev_Servers
+				Jenkins_Master
+					Slave 			--> jdk,git,maven
+				Test_Servers
+					QA-Servers
+					UAT-Servers
+				Prod_Servers
+				
+			
+			Linux Distributions :
+			
+				Fedora
+					RHEL,Amazon Linux2, Centos
+				Debian 
+					Ubuntu
+					
+		
+		Scratch!!!
+		
+			How to install Ansible & Config Ansible controller! 
+			How to attach Ansible Nodes!
+			
+			
+		How to Auth Remote servers :
+		
+			SSH-Keys
+			copied public key into auth. 
+			
+		
+		Ansible controller
+			Target1
+			Target2
+			Target3
+			
+			
+			
+		SSH Keys ---> passwordless Auth.
+			
+		Jenkins_Master 
+			Slave
+			QA-Servers
+			
+		Infra Team ::
+		
+			Ansible Controller 
+			
+				[Dev_Servers]
+				s1
+				s2
+				s3
+				s4
+				s5
+				
+				Jenkins_Master
+					Slave 			--> jdk,git,maven
+				[Test_Servers]
+				t1
+				t2
+				t3
+				t4
+				t5
+				t6
+					QA-Servers
+					UAT-Servers
+				Prod_Servers
+		
+		Ansible ::: Ansible Adhoc Commands / Playbooks
+		
+		
+			Ansible Adhoc Commands
+			
+		ansible copy vs fetch modules !!!
+		
+		Deployments:::
+		
+		AC
+			J_Slave			build *.war use fetch module to fetch *.war from J_Slave to AC 
+			QA_Server		use copy module to copy *.war from AC to QA-Server
+			
+
+Summary ::
+
+		Intro to Ansible 
+		Ansible Architecture
+		Installation & config of Ansible Controller & Nodes
+		Ansible Modules, inventory, adhoc commands.....
+		
+NEXT :
+
+	Playbook, and other Misc Concepts 
