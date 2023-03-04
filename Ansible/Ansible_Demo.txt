@@ -1,0 +1,47 @@
+ansible testnodes -m ping
+
+ansible all -m ping ### will ping all hosts from /etc/ansible/hosts file
+
+ansible samplenode1 -m ping
+ansible samplenode2 -m ping
+
+#or using user defined Inventory file
+#ansible ansible-node1 -m ping -i myinventoryfile.txt
+
+#**************************************************************************************************************************
+
+ansible samplenode2 -m ping
+ANSIBLE_KEEP_REMOTE_FILES=1 ansible samplenode1 -m shell -a "sleep 5 ; echo 'hi'"
+
+ANSIBLE_KEEP_REMOTE_FILES=1 ansible samplenode1 -m shell -a "uptime"
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ansible Facts!
+
+ansible samplenode1 -m setup
+ansible samplenode1 -m setup -a "filter=ansible_mounts"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##Transfer a file from Ansible Controller to Nodes using copy Module
+
+ansible samplenode1 -m copy -a "src=/home/devopsadmin/test1.txt dest=/home/ansibleadmin"
+ansible samplenode1 -m copy -a "src=/home/devopsadmin/test1.txt dest=/home/ansibleadmin backup=yes"
+
+##Transfer a file from Ansible Nodes to Ansible Controller using fetch Module
+
+ansible samplenode2 -m fetch -a "src=/home/ansibleadmin/node2file.txt dest=/home/devopsadmin"
+
+
+### List all modules:
+ansible-doc -l
+### No. of modules:
+ansible-doc -l | wc -l
+### Search for specific modules:
+ansible-doc -l | grep shel
+### To know about any specific modules:
+ansible-doc shell
+
+
+
+UseCase 1 :
+	- Deploy an artifact *.war from Jenkins Slave Machine to QA-Server.
