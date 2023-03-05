@@ -137,3 +137,96 @@ Summary ::
 NEXT :
 
 	Playbook, and other Misc Concepts 
+
+
+	
+	
+#########
+S2		
+#########
+
+	adhoc commands
+	
+	Playbooks!!!!!
+			It is written using *.yaml scripts
+			Reusability!
+			
+		Use Case 1: 
+		
+			Jenkins 
+				J_Slave
+	
+			Requirement is to configure Jenkins Master.
+			
+				update packages!
+				git
+				jdk
+				download the jenkins pre-requisites
+				jenkins
+				enable as startup task 
+				start jenkins service 
+
+			Jenkins_Master_Config.yaml
+			
+				script Module!
+				jenkins_master_config.sh
+					update packages!
+					git
+					jdk
+					download the jenkins pre-requisites
+					jenkins
+					enable as startup task 
+					start jenkins service
+					
+			Requirement is to configure Jenkins Slave Machine for JavaMaven Appln. Build.
+			
+				jdk
+				maven
+				git
+				
+			Requirement is to configure QA-Server with Tomcat
+			
+				jdk 
+				pre-requisites
+				tomcat
+				start tomcat 
+				
+				
+		debug Module :: -- used to print the output.
+			msg : constant and varible 
+			var : varible 
+			
+		Handling variables :
+		
+			declared directly in the playbook
+			declared in a varible file and use it in playbook
+			dynamically pass the values using -e parameter
+			
+	
+	Jenkins_Master ::
+		
+		1. Jenkins_Slave Machine: 
+				Use Ansible to config the required build tools in Slave Machine!
+		
+		2. Implement Deployment to QA-server using Ansible --> Using Jenkins pipeline.
+		
+		
+		old: scm-checkout	-->	build	-->	Deployed to QA.(publish-over ssh)	
+
+		new: scm-checkout	-->	build	-->	Deployed to QA.(Ansible Playbook)			
+
+Summary :
+
+	Ansible Playbook :
+		variables
+		loops
+		handlers
+		register & Setup
+
+	Tasks :
+	
+		1. Jenkins_Slave Machine: 
+			Use Ansible to config the required build tools in Slave Machine!
+		
+		2. Implement Deployment to QA-server using Ansible --> Using Jenkins pipeline.
+		new: scm-checkout	-->	build	-->	Deployed to QA.(Ansible Playbook)			
